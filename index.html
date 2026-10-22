@@ -1,146 +1,321 @@
+
 <!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#08152d">
-<title>AJ Central de Ofertas | Sua vitrine de achadinhos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a1833">
+<meta name="description" content="AJ Central de Ofertas: encontre achadinhos da Shopee e Mercado Livre em um só lugar.">
+<title>AJ Central de Ofertas | Achadinhos selecionados</title>
 <style>
-:root{font-family:Inter,system-ui,Arial,sans-serif;color:#f6f8ff;background:#08152d;scroll-behavior:smooth}
+:root{
+  --bg:#08152b;--panel:#102449;--panel2:#142d57;
+  --gold:#ffc34c;--text:#f8fbff;--muted:#b9c8df;--border:#2b4770
+}
 *{box-sizing:border-box}
-body{margin:0}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Arial,sans-serif}
 a{color:inherit;text-decoration:none}
 button,input,select{font:inherit}
-.container{width:min(1180px,calc(100% - 36px));margin:auto}
-.topline{background:#f4c15a;color:#14213d;text-align:center;padding:9px;font-size:.84rem;font-weight:800}
-header{background:#0c1e3d;border-bottom:1px solid #34476a;position:sticky;top:0;z-index:5}
-.header-inner{display:flex;align-items:center;justify-content:space-between;min-height:76px}
-.brand{font-weight:900;font-size:1.35rem}
-.brand strong,.eyebrow{color:#f4c15a}
-.brand small{display:block;color:#adbfdf;font-size:.68rem;letter-spacing:1.6px}
-nav{display:flex;gap:20px}
-.hero{background:radial-gradient(ellipse at 75% 30%,#194781,#0e2750 38%,#08152d 78%);padding:90px 0 85px}
-.hero-inner{display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center}
-.eyebrow{font-size:.85rem;font-weight:800;letter-spacing:2px;text-transform:uppercase}
-h1{font-size:clamp(2.4rem,5vw,4.5rem);line-height:1.08;margin:15px 0 22px}
-h1 span{color:#f4c15a}
-.hero p,.muted{color:#c1d0e8;line-height:1.7}
-.btn,.buy{display:inline-block;background:#f4c15a;color:#101e37;border-radius:12px;padding:15px 23px;font-weight:850}
-.hero-panel{background:linear-gradient(140deg,#183c72,#0d2245);border:1px solid #3e6090;border-radius:28px;min-height:310px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:32px}
-.hero-symbol{font-size:5rem}
-.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:-26px;position:relative}
-.trust div{background:#102449;border:1px solid #2d466d;padding:19px;border-radius:15px;text-align:center}
-.section{padding:65px 0}
-.section-head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:25px}
-.pill{border:1px solid #3a5580;color:#f4c15a;background:#11284f;border-radius:100px;padding:8px 13px;font-size:.8rem}
-.toolbar{display:grid;grid-template-columns:1fr 220px 190px;gap:12px;margin-bottom:26px}
-input,select{background:#102449;color:white;border:1px solid #3b567e;border-radius:12px;padding:15px;width:100%;min-width:0}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.product{display:flex;flex-direction:column;background:#11264b;border:1px solid #2c466e;border-radius:18px;overflow:hidden}
-.photo{aspect-ratio:4/3;background:#1b427a;display:flex;align-items:center;justify-content:center;position:relative}
-.photo img{width:100%;height:100%;object-fit:contain;background:white}
-.placeholder{text-align:center}
-.placeholder .emoji{font-size:4rem;display:block}
-.store-badge{position:absolute;left:13px;top:13px;border-radius:30px;padding:7px 11px;background:#07142e;color:#ffd46d;font-size:.76rem}
-.product-body{padding:20px;display:flex;flex-direction:column;gap:11px;flex:1}
-.category{font-size:.76rem;color:#f4c15a;font-weight:800;text-transform:uppercase}
-.product h3{font-size:1.05rem;margin:0;min-height:3em}
-.price{font-size:1.6rem;font-weight:900}
-.price-note{font-size:.77rem;color:#aebfda}
-.buy{text-align:center;margin-top:auto}
-.empty{padding:40px;border:1px dashed #52688a;border-radius:16px;text-align:center}
-.about{background:#0c1e3d}
-footer{padding:30px;text-align:center}
-#status{min-height:20px;color:#ffd28b;margin-bottom:14px}
-@media(max-width:850px){.hero-inner{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.toolbar{grid-template-columns:1fr 1fr}.toolbar input{grid-column:1/-1}}
-@media(max-width:560px){.hero-panel{display:none}.trust,.grid,.toolbar{grid-template-columns:1fr}.toolbar input{grid-column:auto}.section-head{flex-direction:column;align-items:start}.hero{padding:65px 0}}
+button{cursor:pointer}
+.wrap{max-width:1150px;margin:auto;padding:0 20px}
+.strip{background:var(--gold);color:#15213a;text-align:center;font-size:.82rem;font-weight:800;padding:8px}
+.header{position:sticky;top:0;z-index:10;background:#0a1a36ee;backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:14px;padding-bottom:14px}
+.logo{font-size:1.15rem;font-weight:900;letter-spacing:-.5px}
+.logo b{color:var(--gold)}
+nav{display:flex;gap:20px;font-size:.92rem;color:var(--muted)}
+nav a:hover{color:var(--gold)}
+.hero{background:radial-gradient(ellipse at 80% 10%,#224c86 0,transparent 50%),linear-gradient(145deg,#102c59,#08152b);padding:66px 0 54px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:30px}
+.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:2px;font-weight:800;font-size:.75rem}
+.hero h1{font-size:clamp(2.3rem,5vw,4.2rem);line-height:1.1;letter-spacing:-2px;margin:12px 0 20px}
+.hero h1 span{color:var(--gold)}
+.hero p{color:var(--muted);max-width:540px;margin-bottom:28px}
+.primary{display:inline-flex;align-items:center;justify-content:center;background:var(--gold);color:#14223b;border:0;border-radius:12px;font-weight:850;padding:14px 22px;transition:transform .15s,filter .15s}
+.primary:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.hero-card{background:#183765a8;border:1px solid #3b6599;border-radius:24px;padding:36px;text-align:center;box-shadow:0 16px 50px #0003}
+.hero-card .emoji{font-size:4rem}
+.hero-card h2{font-size:1.4rem;margin:8px 0}
+.hero-card p{margin:0 auto}
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px}
+.perk{padding:14px;border:1px solid var(--border);background:#10264b;border-radius:12px;text-align:center;font-size:.86rem}
+.section{padding:52px 0 75px}
+.heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:8px}
+.heading h2{margin:0;font-size:clamp(1.5rem,3vw,2rem)}
+.count{border:1px solid var(--border);border-radius:30px;padding:5px 12px;color:var(--gold);font-size:.82rem}
+.sub{color:var(--muted);margin:0 0 24px}
+.filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin-bottom:26px}
+.filters input,.filters select{width:100%;min-width:0;padding:14px;border:1px solid var(--border);border-radius:12px;background:#142b50;color:white;outline:none}
+.filters input:focus,.filters select:focus{border-color:var(--gold)}
+.filters input::placeholder{color:#b5c4d9}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.product{background:var(--panel);border:1px solid var(--border);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.product:hover{transform:translateY(-4px);box-shadow:0 12px 35px #0005}
+.photo{aspect-ratio:1.15;position:relative;background:linear-gradient(135deg,#1e497f,#10264b);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover}
+.placeholder{text-align:center;color:#c8d7ed;padding:20px}
+.placeholder .bag{font-size:3.5rem;display:block}
+.store{position:absolute;left:12px;top:12px;border-radius:30px;background:#07172c;color:var(--gold);font-size:.72rem;font-weight:800;padding:5px 10px}
+.details{padding:17px;display:flex;flex-direction:column;flex:1}
+.category{font-size:.73rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--gold)}
+.name{font-size:1rem;line-height:1.35;margin:8px 0 12px;min-height:2.7em}
+.price{font-size:1.55rem;font-weight:900;margin-top:auto}
+.note{font-size:.75rem;color:var(--muted);margin:4px 0 16px}
+.buy{display:block;text-align:center;padding:13px 10px;border-radius:10px;background:var(--gold);color:#17233b;font-weight:850}
+.buy:hover{filter:brightness(1.08)}
+.empty{border:1px dashed var(--border);border-radius:15px;padding:30px;text-align:center;color:var(--muted);grid-column:1/-1}
+.about{background:#0e2141;border-top:1px solid var(--border);padding:36px 0;color:var(--muted)}
+.about h2{color:var(--text);font-size:1.2rem}
+.footer{padding:20px 0;text-align:center;color:#9eb0ca;font-size:.8rem}
+.error{color:#ffca86;margin:14px 0}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:12px;top:12px;z-index:99;background:var(--gold);color:black;padding:8px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){
+  .hero{padding:45px 0}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-card{padding:22px}
+  .perks{grid-template-columns:1fr;gap:8px}
+  .filters{grid-template-columns:1fr 1fr}
+  .filters input{grid-column:1/-1}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .details{padding:12px}
+  .price{font-size:1.3rem}
+  .name{font-size:.9rem}
+  .wrap{padding:0 14px}
+}
+@media(max-width:360px){
+  nav{gap:10px;font-size:.8rem}
+  .logo{font-size:.95rem}
+  .grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
-<div class="topline">✨ Achadinhos selecionados para você</div>
-<header><div class="container header-inner">
-<a class="brand" href="#inicio"><strong>AJ</strong> Central de Ofertas<small>ESCOLHAS INTELIGENTES</small></a>
-<nav><a href="#ofertas">Ofertas</a><a href="#sobre">Sobre</a></nav>
-</div></header>
-<main>
-<section class="hero" id="inicio"><div class="container hero-inner">
-<div><div class="eyebrow">Sua central de achadinhos</div>
-<h1>Ofertas que <span>valem a pena.</span></h1>
-<p>Encontre produtos de lojas parceiras em uma vitrine organizada.</p>
-<a class="btn" href="#ofertas">Explorar ofertas ↓</a></div>
-<div class="hero-panel"><div class="hero-symbol">🛍️</div><h2>Seu próximo achadinho está aqui</h2><p>Explore e compre na loja parceira.</p></div>
-</div></section>
-<div class="container trust"><div>🔎 Busca fácil</div><div>🏷️ Categorias organizadas</div><div>🔗 Compra direta na loja parceira</div></div>
-<section class="section container" id="ofertas">
-<div class="section-head"><div><h2>🔥 Ofertas e achadinhos</h2><p class="muted">Confira produtos e descubra sua próxima compra.</p></div><span class="pill" id="count">Carregando...</span></div>
-<div class="toolbar">
-<input id="search" type="search" placeholder="🔎 Buscar produtos...">
-<select id="category"><option value="">Todas as categorias</option></select>
-<select id="source"><option value="">Todas as lojas</option><option value="Shopee">Shopee</option><option value="Mercado Livre">Mercado Livre</option><option value="TikTok Shop">TikTok Shop</option><option value="InfinitePay">InfinitePay</option></select>
-</div>
-<div id="status" role="status"></div><div class="grid" id="products"></div>
-<p id="empty" class="empty" hidden>Nenhuma oferta encontrada.</p>
-</section>
-<section class="section about" id="sobre"><div class="container"><h2>Sobre a AJ Central de Ofertas</h2><p class="muted">Indicamos produtos de lojas parceiras. Alguns links podem gerar comissão para a AJ sem custo adicional para você. Confirme preços e disponibilidade na loja.</p></div></section>
+<a class="skip" href="#ofertas">Ir para ofertas</a>
+<div class="strip">✨ Achadinhos selecionados para você</div>
+<header class="header">
+  <div class="wrap">
+    <a class="logo" href="#inicio">AJ <b>Central de Ofertas</b></a>
+    <nav aria-label="Menu">
+      <a href="#ofertas">Ofertas</a>
+      <a href="#sobre">Sobre</a>
+    </nav>
+  </div>
+</header>
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Sua central de achadinhos</div>
+          <h1>Ofertas que <span>valem a pena.</span></h1>
+          <p>Encontre produtos selecionados de lojas parceiras em um só lugar. Navegue com facilidade e confira as condições na loja antes de comprar.</p>
+          <a class="primary" href="#ofertas">Explorar ofertas ↓</a>
+        </div>
+        <div class="hero-card">
+          <div class="emoji">🛍️</div>
+          <h2>Seu próximo achadinho está aqui</h2>
+          <p>Escolha uma categoria e encontre a oferta que combina com você.</p>
+        </div>
+      </div>
+      <div class="perks">
+        <div class="perk">🔎 Encontre rápido</div>
+        <div class="perk">🏷️ Categorias organizadas</div>
+        <div class="perk">🔗 Compra na loja parceira</div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="ofertas">
+    <div class="wrap">
+      <div class="heading">
+        <h2>🔥 Ofertas e achadinhos</h2>
+        <span id="count" class="count">Carregando...</span>
+      </div>
+      <p class="sub">Pesquise, filtre e encontre sua próxima compra.</p>
+      <div class="filters">
+        <input id="search" type="search" placeholder="🔎 Buscar produtos..." aria-label="Buscar produtos">
+        <select id="category" aria-label="Filtrar categoria">
+          <option value="">Todas as categorias</option>
+        </select>
+        <select id="store" aria-label="Filtrar loja">
+          <option value="">Todas as lojas</option>
+        </select>
+      </div>
+      <p id="error" class="error" role="alert" hidden></p>
+      <div id="grid" class="grid" aria-live="polite">
+        <div class="empty">Carregando ofertas...</div>
+      </div>
+    </div>
+  </section>
 </main>
-<footer>© <span id="year"></span> AJ Central de Ofertas</footer>
+<section id="sobre" class="about">
+  <div class="wrap">
+    <h2>Sobre a AJ Central de Ofertas</h2>
+    <p>Reunimos indicações de produtos de lojas parceiras para facilitar sua busca. Alguns links são de afiliados e podem gerar comissão para a AJ, sem custo adicional para você. Preços e disponibilidade devem ser confirmados na loja.</p>
+  </div>
+</section>
+<footer class="footer">© <span id="year"></span> AJ Central de Ofertas · Escolhas inteligentes</footer>
 <script>
 'use strict';
-const $=id=>document.getElementById(id);
-let catalog=[];
-const validUrl=u=>{try{return new URL(u).protocol==='https:'}catch{return false}};
-const money=p=>{
-if(p===null||p===undefined||p==='')return 'Consulte o preço';
-const n=typeof p==='string'?Number(p.replace(/R\$\s*/g,'').replace(/\./g,'').replace(',','.')):Number(p);
-return Number.isFinite(n)?new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(n):'Consulte o preço';
+const $ = id => document.getElementById(id);
+let products = [];
+
+const money = value => {
+  const n = Number(String(value ?? '')
+    .replace(/\s/g, '')
+    .replace(/^R\$/, '')
+    .replace(',', '.'));
+  return Number.isFinite(n) && n >= 0
+    ? n.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})
+    : 'Consulte o preço';
 };
-function normalize(p){
-if(!p||typeof p!=='object')return null;
-return {name:p.name??p.nome??p.titulo,price:p.price??p.preco,category:p.category??p.categoria??'Outros',source:p.source??p.loja??p.plataforma,image:p.image??p.imagem,url:p.url??p.link,status:p.status??p.situacao};
+
+const safeUrl = (value, kind) => {
+  try {
+    const u = new URL(String(value || ''));
+    if (!['https:', 'http:'].includes(u.protocol)) return '';
+    if (kind === 'affiliate' &&
+      !/(^|\.)(shopee\.com\.br|mercadolivre\.com\.br|mercadolivre\.com|mercadolibre\.com|meli\.la)$/.test(u.hostname)
+    ) return '';
+    return u.href;
+  } catch {
+    return '';
+  }
+};
+
+const text = value => String(value ?? '').trim();
+
+function normalize(p) {
+  return {
+    name: text(p.name || p.titulo),
+    category: text(p.category || p.categoria) || 'Outros',
+    store: text(p.source || p.plataforma || p.loja) || 'Loja parceira',
+    price: p.price ?? p.preco,
+    image: safeUrl(p.image || p.imagem, 'image'),
+    url: safeUrl(p.url || p.link, 'affiliate'),
+    status: text(p.status).toLowerCase()
+  };
 }
-function render(){
-const q=$('search').value.trim().toLocaleLowerCase('pt-BR'),cat=$('category').value,src=$('source').value;
-const filtered=catalog.filter(p=>(!cat||p.category===cat)&&(!src||p.source===src)&&(!q||(p.name+' '+p.category+' '+p.source).toLocaleLowerCase('pt-BR').includes(q)));
-$('products').replaceChildren();
-$('empty').hidden=filtered.length!==0;
-$('count').textContent=filtered.length+' '+(filtered.length===1?'produto':'produtos');
-for(const p of filtered){
-const card=document.createElement('article');card.className='product';
-const photo=document.createElement('div');photo.className='photo';
-const store=document.createElement('span');store.className='store-badge';store.textContent=p.source;photo.append(store);
-const fallback=document.createElement('div');fallback.className='placeholder';
-const emoji=document.createElement('span');emoji.className='emoji';emoji.textContent='🛍️';
-const hint=document.createElement('small');hint.textContent='AJ Central de Ofertas';
-fallback.append(emoji,hint);photo.append(fallback);
-if(validUrl(p.image)){const img=document.createElement('img');img.src=p.image;img.alt='Foto de '+p.name;img.loading='lazy';img.referrerPolicy='no-referrer';img.addEventListener('load',()=>fallback.remove());img.addEventListener('error',()=>img.remove());photo.append(img)}
-const body=document.createElement('div');body.className='product-body';
-const category=document.createElement('div');category.className='category';category.textContent=p.category;
-const name=document.createElement('h3');name.textContent=p.name;
-const price=document.createElement('div');price.className='price';price.textContent=money(p.price);
-const note=document.createElement('div');note.className='price-note';note.textContent='Preço de referência · confira no vendedor';
-const buy=document.createElement('a');buy.className='buy';buy.href=p.url;buy.target='_blank';buy.rel='noopener noreferrer sponsored';buy.textContent='Ver oferta na '+p.source+' ↗';
-body.append(category,name,price,note,buy);card.append(photo,body);$('products').append(card);
+
+function element(tag, cls, content) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (content !== undefined) e.textContent = content;
+  return e;
 }
+
+function placeholder() {
+  const p = element('div', 'placeholder');
+  p.appendChild(element('span', 'bag', '🛍️'));
+  p.appendChild(element('small', '', 'AJ Central de Ofertas'));
+  return p;
 }
-async function load(){
-try{
-$('status').textContent='Carregando ofertas...';
-const response=await fetch('./produtos.json',{cache:'no-store'});
-if(!response.ok)throw new Error('HTTP '+response.status);
-const data=await response.json();
-if(!Array.isArray(data))throw new Error('Catálogo não é uma lista');
-catalog=data.map(normalize).filter(p=>p&&String(p.status).toLowerCase()==='aprovado'&&typeof p.name==='string'&&p.name.trim()&&validUrl(p.url)&&['Shopee','Mercado Livre','TikTok Shop','InfinitePay'].includes(p.source)).slice(0,500);
-const cats=[...new Set(catalog.map(p=>p.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
-$('category').replaceChildren(new Option('Todas as categorias',''),...cats.map(c=>new Option(c,c)));
-$('status').textContent='';
-}catch(error){console.error(error);$('status').textContent='Erro ao carregar ofertas: '+error.message}
-render();
+
+function card(p) {
+  const article = element('article', 'product');
+  const photo = element('div', 'photo');
+
+  if (p.image) {
+    const img = element('img');
+    img.src = p.image;
+    img.alt = p.name;
+    img.loading = 'lazy';
+    img.onerror = () => {
+      img.remove();
+      photo.appendChild(placeholder());
+    };
+    photo.appendChild(img);
+  } else {
+    photo.appendChild(placeholder());
+  }
+
+  photo.appendChild(element('span', 'store', p.store));
+  article.appendChild(photo);
+
+  const d = element('div', 'details');
+  d.appendChild(element('span', 'category', p.category));
+  d.appendChild(element('h3', 'name', p.name));
+  d.appendChild(element('div', 'price', money(p.price)));
+  d.appendChild(element('p', 'note', 'Preço de referência · confirme na loja'));
+
+  if (p.url) {
+    const a = element('a', 'buy', 'Ver oferta na ' + p.store + ' ↗');
+    a.href = p.url;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer sponsored';
+    a.setAttribute('aria-label', 'Ver ' + p.name + ' na ' + p.store);
+    d.appendChild(a);
+  } else {
+    d.appendChild(element('span', 'note', 'Link de compra indisponível'));
+  }
+
+  article.appendChild(d);
+  return article;
 }
-$('search').addEventListener('input',render);
-$('category').addEventListener('change',render);
-$('source').addEventListener('change',render);
-$('year').textContent=new Date().getFullYear();
-load();
+
+function render() {
+  const q = $('search').value.toLocaleLowerCase('pt-BR');
+  const cat = $('category').value;
+  const store = $('store').value;
+
+  const filtered = products.filter(p =>
+    (p.name + ' ' + p.category).toLocaleLowerCase('pt-BR').includes(q) &&
+    (!cat || p.category === cat) &&
+    (!store || p.store === store)
+  );
+
+  $('count').textContent = filtered.length + ' produto' +
+    (filtered.length === 1 ? '' : 's');
+
+  $('grid').replaceChildren(...(
+    filtered.length
+      ? filtered.map(card)
+      : [element('div', 'empty',
+          'Nenhuma oferta encontrada. Experimente outra busca ou categoria.')]
+  ));
+}
+
+function fillSelect(id, values) {
+  for (const value of [...new Set(values)].sort((a,b) => a.localeCompare(b,'pt-BR'))) {
+    const o = document.createElement('option');
+    o.value = value;
+    o.textContent = value;
+    $(id).appendChild(o);
+  }
+}
+
+async function init() {
+  try {
+    const response = await fetch('./produtos.json', {cache:'no-store'});
+    if (!response.ok) throw new Error('HTTP ' + response.status);
+
+    const raw = await response.json();
+    if (!Array.isArray(raw)) throw new Error('O catálogo precisa ser uma lista de produtos');
+
+    products = raw.map(normalize).filter(p =>
+      p.name && (!p.status || ['aprovado','publicado','ativo'].includes(p.status))
+    );
+
+    fillSelect('category', products.map(p => p.category));
+    fillSelect('store', products.map(p => p.store));
+    render();
+  } catch(err) {
+    $('count').textContent = '0 produtos';
+    $('grid').replaceChildren(
+      element('div', 'empty', 'Não foi possível carregar as ofertas.')
+    );
+    $('error').hidden = false;
+    $('error').textContent = 'Erro ao carregar produtos.json: ' + err.message;
+  }
+}
+
+$('search').addEventListener('input', render);
+$('category').addEventListener('change', render);
+$('store').addEventListener('change', render);
+$('year').textContent = new Date().getFullYear();
+init();
 </script>
 </body>
 </html>
