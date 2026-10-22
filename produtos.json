@@ -2,7 +2,7 @@
   {
     "id": "vonixx-001",
     "name": "Kit Shampoo V-Floc Cera Tok Final Sintra Fast Intense Vonixx",
-    "price": 150.03,
+    "preco": 150.03,
     "category": "Automotivo",
     "source": "Shopee",
     "image": "",
@@ -11,8 +11,8 @@
   },
   {
     "id": "c8f41446-811c-4719-b3fc-9bf1479d2172",
-    "titulo": "Kit Árvore de Natal 1,5m Decorada, 300 Galhos, Pisca LED e Laço",
-    "preco": "121,57",
+    "name": "Kit Árvore de Natal 1,5m Decorada, 300 Galhos, Pisca LED e Laço",
+    "price": 121.57,
     "preco_original": "",
     "loja": "Shopee",
     "plataforma": "Shopee",
@@ -20,7 +20,7 @@
     "imagem": "",
     "link": "https://s.shopee.com.br/2BFpDV5ofq",
     "descricao": "Árvore de Natal de 1,5 metro com 300 galhos, decoração, laço e pisca LED. Confira as opções disponíveis no anúncio.",
-    "selo": "Natal"
+    "selo": "Natal",
     "status": "aprovado"
   }
 ]
